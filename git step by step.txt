@@ -1,0 +1,264 @@
+### **Git Lab: Step-by-Step Practice**
+
+This lab will guide you through the process of initializing a Git repository, creating branches, making changes, resolving merge conflicts, and pushing/pulling changes to/from a remote repository. Follow the steps below to complete the tasks.
+
+---
+
+### **Part 1: Initialize a Git Repository**
+
+1. **Create a New Directory for Your Project**
+   - Open your terminal/command prompt.
+   - Navigate to the location where you want to create your project folder.
+   - Run the following command to create a new directory and navigate into it:
+
+     ```bash
+     mkdir my-git-repo
+     cd my-git-repo
+     ```
+$ git config --global user.email "cloudcomputingchh@gmail.com"
+
+$   git config --global user.name "Chhaya"
+
+
+
+
+2. **Initialize a New Git Repository**
+   - Now, initialize a Git repository in this folder:
+
+--- open the existing folder
+
+     ```bash
+     git init
+     ```
+
+   - This command creates a `.git` directory that Git uses to track your project.
+
+3. **Create a New File**
+   - Create a new file named `README.md` in the project directory.
+
+     ```bash
+     touch README.md
+     ```
+
+4. **Add and Commit the File**
+   - Add the file to the staging area:
+
+     ```bash
+     git add README.md
+     ```
+
+   - Commit the file to the repository with a message:
+
+     ```bash
+     git commit -m "Initial commit with README.md"
+     ```
+
+5. **Check the Status and History**
+   - Check the status of the repository:
+
+     ```bashgit log
+     git status
+     ```
+
+   - Check the commit history:
+
+     ```bash
+     git log
+     ```
+
+---
+
+### **Part 2: Create a Branch and Make Changes**
+
+1. **Create a New Branch**
+
+
+--Check the name of the current branch:
+git branch
+
+--switch to main if you are not on that branch already:
+git checkout main
+
+- Create a new branch named `feature-branch`:
+
+     ```bash
+     git branch feature-branch
+     ```
+
+   - Switch to the new branch:
+
+     ```bash
+     git checkout feature-branch
+     ```
+
+2. **Make Changes on the New Branch**
+   - Open the `README.md` file in a text editor and add the following line:
+
+     ```
+     # This is a new feature
+     ```
+
+   - Save the changes.
+
+3. **Stage and Commit the Changes**
+   - Add the modified `README.md` to the staging area:
+
+     ```bash
+     git add README.md
+     ```
+
+   - Commit the changes with a descriptive message:
+
+     ```bash
+     git commit -m "Added new feature to README.md"
+     ```
+
+4. **Verify the Commit History**
+   - Check the commit history to see your new commit:
+
+     ```bash
+     git log
+     ```
+
+---
+
+### **Part 3: Merge Changes and Resolve Conflicts**
+
+1. **Switch Back to the Main Branch**
+   - Switch back to the main branch (assuming it's named `main`):
+
+     ```bash
+     git checkout main
+     ```
+
+2. **Make Changes on the Main Branch**
+   - Open the `README.md` file and add the following line:
+
+     ```
+     # Main branch changes
+     ```
+
+   - Save the changes.
+
+3. **Stage and Commit the Changes**
+   - Stage and commit the changes on the main branch:
+
+     ```bash
+     git add README.md
+     git commit -m "Made changes on the main branch"
+     ```
+
+4. **Merge the Feature Branch into Main**
+   - Attempt to merge `feature-branch` into `main`:
+
+     ```bash
+     git merge feature-branch
+     ```
+
+   - Since both branches modified the `README.md` file, Git will create a **merge conflict**.
+
+5. **Resolve the Merge Conflict**
+   - Open the `README.md` file. You will see conflict markers like this:
+
+     ```txt
+     <<<<<<< HEAD
+     # Main branch changes
+     =======
+     # This is a new feature
+     >>>>>>> feature-branch
+     ```
+
+   - Manually resolve the conflict by editing the file to your liking. For example:
+
+     ```txt
+     # Main branch changes
+     # This is a new feature
+     ```
+
+6. **Mark the Conflict as Resolved**
+   - After resolving the conflict, stage the file:
+
+     ```bash
+     git add README.md
+     ```
+
+7. **Complete the Merge**
+   - Commit the merge:
+
+     ```bash
+     git commit -m "Merged feature-branch into main"
+     ```
+
+---
+
+### **Part 4: Push and Pull Changes to/from a Remote Repository**
+
+1. **Create a Remote Repository**
+   - Go to GitHub (or GitLab, Bitbucket, etc.), create a new repository (e.g., `my-git-repo`), and do **not** initialize it with a README.
+
+2. **Add the Remote Repository**
+   - Copy the repository URL (e.g., `https://github.com/your-username/my-git-repo.git`).
+   - In your terminal, add the remote repository:
+
+     ```bash
+     git remote add origin https://github.com/your-username/my-git-repo.git
+     ```
+
+3. **Push Your Local Changes to the Remote Repository**
+   - Push your changes to the remote `main` branch:
+
+     ```bash
+     git push -u origin main
+     ```
+
+   - If this is the first push, it may ask for your GitHub credentials.
+
+4. **Make Changes on Another Branch and Push**
+   - Create a new branch `another-feature` and switch to it:
+
+     ```bash
+     git checkout -b another-feature
+     ```
+
+   - Make some changes to the `README.md` file.
+
+   - Stage and commit the changes:
+
+     ```bash
+     git add README.md
+     git commit -m "Made changes on another-feature"
+     ```
+
+   - Push the branch to the remote:
+
+     ```bash
+     git push -u origin another-feature
+     ```
+
+5. **Pull Changes from Remote to Local**
+   - If other contributors have pushed changes to the remote repository, you can pull the latest changes to your local repository:
+
+     ```bash
+     git pull origin main
+     ```
+
+   - This command fetches changes from the remote and merges them into your current branch.
+
+6. **Sync Your Local Repository with Remote**
+   - Always ensure your local repository is up to date with the remote repository by regularly pulling changes:
+
+     ```bash
+     git pull origin main
+     ```
+
+---
+
+### **Conclusion**
+
+Congratulations! You have now completed the following Git tasks:
+- Initialized a Git repository.
+- Created and worked with branches.
+- Merged changes and resolved conflicts.
+- Pushed and pulled changes from a remote repository.
+
+Make sure to regularly practice these tasks to become proficient in using Git for your personal or collaborative projects!
